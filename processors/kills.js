@@ -23,7 +23,7 @@ async function updateKillsNumber() {
             listOpt = [];
             let $ = cheerio.load(body);
             // $('div[class="mfz-container"]').find('div > div > div > div > article > ul > caption').each(function (index, element) {
-                $('div[class="mfz-container"]').find('div > div > div > div > article > ul > li > div > div > ul').each(function (index, element) {
+                $('div[class="mfz-container"]').find('div > div > div > div > article > ul > li > div ').each(function (index, element) {
                     if (index===0) listOpt.push($(element).text());
                 });
             // });
