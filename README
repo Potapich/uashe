@@ -1,0 +1,4 @@
+RUN app.js
+PORT 8080
+Try in browser - localhost:8080
+For access to db - send your ip to Pedash M
