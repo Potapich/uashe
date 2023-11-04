@@ -9,6 +9,8 @@ let Frazister = require('./processors/frazister.js');
 let frazeGetter = new Frazister();
 let daysNum = require('./processors/counting_days.js');
 let fuelsNum = require('./processors/fluels.js');
+let killsNum = require('./processors/kills.js');
+
 let db_lib = require('./libs/db_lib.js');
 
 // let indexRouter = require('./routes/index');
@@ -42,12 +44,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', indexRouter);
 app.get('/', async function (req, res) {
     let fraze = frazeGetter.get()
-    console.log(daysNum.getDays(), fraze,  await db_lib.getVisitersNum(), fuelsNum.getFuelsNumber(), await db_lib.getFuelsLink(), await db_lib.getVisitersNum())
+    console.log(daysNum.getDays(), fraze,  await db_lib.getVisitersNum(), fuelsNum.getFuelsNumber(), await db_lib.getLinks(), await db_lib.getVisitersNum())
     res.render('index', {
         message: daysNum.getDays(),
         fraze: fraze.citate,
         author: fraze.autor,
         fuel: fuelsNum.getFuelsNumber(),
+        kills: killsNum.getKillsNumber(),
         visiters: JSON.parse(JSON.stringify(await db_lib.getVisitersNum()))[0].visiters
     });
 })

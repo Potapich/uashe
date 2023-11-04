@@ -47,7 +47,7 @@ async function getVisitersNum() {
     }
 }
 
-async function getFuelsLink() {
+async function getLinks() {
     try {
         return await numbersCollection.find({type: "links"}, {
             projection: {_id: 0, type: 0}
@@ -60,5 +60,5 @@ async function getFuelsLink() {
 
 module.exports.insertNum = insertNum;
 module.exports.getVisitersNum = getVisitersNum;
-module.exports.getFuelsLink = getFuelsLink;
+module.exports.getLinks = getLinks;
 
