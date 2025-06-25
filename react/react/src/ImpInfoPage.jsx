@@ -52,6 +52,10 @@ function ImpInfoPage() {
             );
         }
 
+        //date
+        const today = new Date(); // Отримує поточну дату та час
+        const formattedDate = today.toLocaleDateString('uk-UA'); // Форматує дату для України (наприклад, 25.06.2025)
+
         // 3. Дані для рядків таблиці (всі елементи, починаючи з третього)
         const pricesData = fuelArray.slice(1).toString().replace("А-92", "А-92 ");
         const pricesDataMod = pricesData.toString().replaceAll('А-95', "А-95 ");
@@ -87,7 +91,7 @@ function ImpInfoPage() {
         return (
             <table className="fuel-prices-table">
                 {/* Назва таблиці - ви можете змінити її на більш динамічну, якщо вона надходить з іншого джерела */}
-                <caption>Актуальні ціни на пальне (Станом на 23.06.2025)</caption>
+                <caption>Актуальні ціни на пальне (Станом на {formattedDate})</caption>
                 <thead>
                 <tr>
                     {columnHeaders.map((header, index) => (

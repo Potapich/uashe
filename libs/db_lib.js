@@ -5,7 +5,7 @@ let urlDB = mongoConfig.mongoURL;//'mongodb://' + mongoConfig.user + ':' + mongo
 let dbo;
 let numbersCollection;
 
-const client = new MongoClient(urlDB, {useNewUrlParser: true});
+const client = new MongoClient(urlDB);
 
 (async function mongo_starter() {
     await client.connect();
