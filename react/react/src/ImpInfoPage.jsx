@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import './index.css';
 
-const API_URL = 'http://127.0.0.1:8070/getImpInfo';
+const API_URL = 'http://45.94.158.109:8070/getImpInfo';
 
 function ImpInfoPage() {
     const [info, setInfo] = useState(null);

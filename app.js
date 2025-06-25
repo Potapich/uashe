@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 });
 //end middleware for origin
 
-const whitelist = ['127.0.0.1:8070', 'http://127.0.0.1:8070', 'http://localhost:5173']//todo change on ours domains!!!!!!!!!!!!!!!!!!!
+const whitelist = ['http://45.94.158.109:8080', '45.94.158.109:8080', '127.0.0.1:8070', 'http://127.0.0.1:8070', 'http://localhost:5173']//todo change on ours domains!!!!!!!!!!!!!!!!!!!
 
 const corsOptions = {
     origin: (origin, cb) => {
