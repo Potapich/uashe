@@ -1,0 +1,174 @@
+/* imp-info-app/src/index.css */
+
+/* Базові стилі для всього документа */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Змінюємо колір фону body на темний */
+  background-color: #1a1a1a; /* Дуже темний сірий */
+  color: #e0e0e0; /* Світліший текст для контрасту */
+}
+
+/* Стилі для основного контейнера вашого додатка */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Стилі для ImpInfoPage */
+.info-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  /* Змінюємо фон контейнера на темніший */
+  background-color: #2c2c2c; /* Темніший сірий */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Сильніша тінь для темного фону */
+  color: #e0e0e0; /* Світліший текст */
+  text-align: left;
+}
+
+.info-container h2 {
+  text-align: center;
+  /* Змінюємо колір заголовка */
+  color: #8be9fd; /* Світло-блакитний для контрасту */
+  margin-bottom: 30px;
+  font-size: 2.2em;
+}
+
+.info-card {
+  /* Змінюємо фон картки */
+  background-color: #3a3a3a; /* Трохи світліший темний */
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #4a4a4a; /* Темна межа */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Тінь для картки */
+}
+
+.info-card p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 1.05em;
+  color: #c0c0c0; /* Трохи темніший світлий текст для основного контенту */
+}
+
+.info-card strong {
+  /* Змінюємо колір виділеного тексту */
+  color: #FF7F50; /* Зелений для контрасту */
+}
+
+.info-section {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px dashed #4a4a4a; /* Темніша роздільна лінія */
+}
+
+.info-section h3 {
+  /* Змінюємо колір підзаголовків */
+  color: #ff79c6; /* Рожевий для контрасту */
+  margin-bottom: 15px;
+  font-size: 1.6em;
+}
+
+.info-content {
+  /* Фон для блоків з паливом/втратами */
+  background-color: #4a4a4a; /* Темніший фон */
+  padding: 15px;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.95em;
+  line-height: 1.4;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #5a5a5a; /* Темніша межа */
+  color: #f8f8f2; /* Дуже світлий текст для цих блоків */
+}
+
+.info-item-line {
+  margin-bottom: 5px;
+}
+
+/* Стилі для статусів завантаження/помилки */
+.info-container.loading,
+.info-container.error {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info-container.loading {
+  color: #8be9fd;
+  background-color: #3c3c3c;
+}
+
+.info-container.error {
+  color: #ff6e6e; /* Червоний для помилок */
+  background-color: #3c3c3c;
+  font-weight: bold;
+}
+
+/* Стилі для таблиці цін на пальне */
+.fuel-prices-table {
+  width: 100%;
+  border-collapse: collapse; /* Прибираємо подвійні межі */
+  margin-top: 15px;
+  background-color: #3a3a3a; /* Темний фон для таблиці */
+  border-radius: 8px;
+  overflow: hidden; /* Щоб border-radius працював на кутах */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.fuel-prices-table th,
+.fuel-prices-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #4a4a4a; /* Темна межа для рядків */
+}
+
+.fuel-prices-table th {
+  background-color: #4a4a4a; /* Трохи світліший фон для заголовків */
+  color: #8be9fd; /* Колір тексту заголовків */
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+}
+
+.fuel-prices-table tbody tr:nth-child(even) {
+  background-color: #3f3f3f; /* Смугастий фон для рядків (трохи світліший темний) */
+}
+
+.fuel-prices-table tbody tr:hover {
+  background-color: #505050; /* Зміна фону при наведенні */
+  cursor: default;
+}
+
+.fuel-prices-table td {
+  color: #c0c0c0; /* Колір тексту в комірках таблиці */
+}
+
+/* Прибираємо стилі info-content, оскільки таблиця вже має свої */
+.info-content {
+  /*background-color: #4a4a4a;*/ /* Закоментовано або видалено, якщо таблиця повністю замінює */
+  padding: 0; /* Прибираємо padding, оскільки таблиця буде всередині */
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: normal; /* Змінено на normal, оскільки таблиця форматує сама */
+  word-wrap: break-word;
+  font-size: 0.95em;
+  line-height: 1.4;
+  max-height: none; /* Таблиця може розтягуватися */
+  overflow-y: visible; /* Таблиця може розтягуватися */
+  border: none; /* Прибираємо межу */
+  color: #f8f8f2;
+}

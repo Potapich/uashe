@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "uashe",
+      "script": "app.js",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "env_development": {
+        "NODE_ENV": "development"
+      }
+    }
+  ]
+}

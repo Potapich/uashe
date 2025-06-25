@@ -1,20 +1,15 @@
 let createError = require('http-errors');
 let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
-let session = require('express-session')
 let config = require('./config/index');
 let Frazister = require('./processors/frazister.js');
 let frazeGetter = new Frazister();
 let daysNum = require('./processors/counting_days.js');
 let fuelsNum = require('./processors/fluels.js');
 let killsNum = require('./processors/kills.js');
+const cors = require('cors');
 
 let db_lib = require('./libs/db_lib.js');
-
-// let indexRouter = require('./routes/index');
-// let usersRouter = require('./routes/users');
+const fs = require("fs");
 
 let app = express();
 
@@ -24,27 +19,62 @@ server.listen(config.start_port, function () {
     console.log('App listening on port ' + config.start_port + '!');
 });
 
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-    secret: config.session.secret,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {secure: true}
-}))
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+//security block
+//middleware for origin
+app.use(function (req, res, next) {
+    req.headers.origin = req.headers.origin || req.headers.host;
+    next();
+});
+//end middleware for origin
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+const whitelist = ['127.0.0.1:8070', 'http://127.0.0.1:8070', 'http://localhost:5173']//todo change on ours domains!!!!!!!!!!!!!!!!!!!
 
-// app.use('/', indexRouter);
-app.get('/', async function (req, res) {
+const corsOptions = {
+    origin: (origin, cb) => {
+        console.log(origin);
+        if (whitelist.indexOf(origin) > -1) {
+            cb(null, true)
+        } else {
+            cb('Not allowed by CORS')
+        }
+    },
+}
+
+app.use(cors(corsOptions));
+//sb
+
+app.get('/', cors(corsOptions), function (req, res) {
+    res.sendFile('index.html', {root: __dirname + '/react/react/dist'});
+});
+
+app.get(
+    ['/assets*', '/img.png'], cors(corsOptions),
+    function (req, res, next) {
+        if (req.url.length > 1) {
+            let filePath = req.url;
+            console.log(__dirname + '/react/react/dist' + filePath)
+            let getFileRequest = fs.existsSync(__dirname + '/react/react/dist' + filePath);
+            if (getFileRequest) {
+                let requestFile = fs.readFileSync(__dirname + '/react/react/dist' + filePath);
+                res.write(requestFile);
+                res.end();
+            } else {
+                res.status(400).json({error: 'error'});
+            }
+        } else {
+            next();
+        }
+    }
+);
+
+app.get('/healthcheck', cors(corsOptions), function (req, res) {
+    res.end('healthcheck')
+});
+
+
+app.get('/getImpInfo', async function (req, res) {
     let fraze = frazeGetter.get()
-    res.render('index', {
+    res.status(200).json({
         message: daysNum.getDays(),
         fraze: fraze.citate,
         author: fraze.autor,

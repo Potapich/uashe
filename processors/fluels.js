@@ -25,7 +25,7 @@ async function updateFuelsNumber() {
             $('div[class="mfz-container"]').find('div > div > div > div > article > table > caption').each(function (index, element) {
                 $('div[class="mfz-container"]').find('div > div > div > div > article > table > tbody').each(function (index, element2) {
                     listOpt.push($(element).text());
-                    listOpt.push($(element2).text());
+                    listOpt.push($(element2).text().substring(21));
                 });
             });
         } catch (err) {
@@ -35,6 +35,7 @@ async function updateFuelsNumber() {
 }
 
 function getFuelsNumber() {
+    // console.log(listOpt[1].slice(21))
     return listOpt
 }
 
