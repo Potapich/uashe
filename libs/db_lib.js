@@ -1,24 +1,17 @@
 const mongoConfig = require('../config/config_mongo');
-const MongoClient = require('mongodb').MongoClient;
-const ObjectId = require('mongodb').ObjectId;
+const {MongoClient} = require('mongodb');
 
 let urlDB = mongoConfig.mongoURL;//'mongodb://' + mongoConfig.user + ':' + mongoConfig.password + '@' + mongoConfig.rootlink_ip + ',' + mongoConfig.secondarylink_ip;
 let dbo;
 let numbersCollection;
 
-(function mongo_starter() {
-    MongoClient.connect(urlDB, {   // + '/' + dbName, {
-        useUnifiedTopology: true, useNewUrlParser: true
-    }, function (err, db) {
-        if (err) {
-            console.log(err);
-            return err;
-        } else {
-            console.log("Connected successfully to db");
-            dbo = db.db();
-            numbersCollection = dbo.collection(mongoConfig.numbersCollection);
-        }
-    })
+const client = new MongoClient(urlDB, {useNewUrlParser: true});
+
+(async function mongo_starter() {
+    await client.connect();
+    console.log("Connected successfully to db - ", urlDB);
+    dbo = client.db();
+    numbersCollection = dbo.collection(mongoConfig.numbersCollection);
 })();
 
 //counting
