@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ImpInfoPage from './ImpInfoPage.jsx'; // <--- Імпортуємо ваш компонент
-import './index.css'; // Базові стилі для всього додатка
+import App from './App.jsx'; // <--- Імпортуємо компонент App
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <ImpInfoPage /> {/* <--- Рендеримо ImpInfoPage як основний компонент */}
+        <App /> {/* <--- Рендеримо App, який містить усі маршрути */}
     </React.StrictMode>,
 );

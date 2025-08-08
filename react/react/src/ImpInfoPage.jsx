@@ -1,8 +1,9 @@
 // src/ImpInfoPage.jsx
 import React, {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
-const API_URL = 'http://45.94.158.109:8070/getImpInfo';
+const API_URL = 'http://benderio.pp.ua/getImpInfo';
 
 function ImpInfoPage() {
     const [info, setInfo] = useState(null);
@@ -111,7 +112,6 @@ function ImpInfoPage() {
         );
     };
 
-// --- ОНОВЛЕНА допоміжна функція для форматування Втрат у вигляді ТАБЛИЦІ ---
     const formatKillsContent = (killsArray) => {
         // Припускаємо, що killsArray має вигляд: ["\nТанки — 10965 (+1)ББМ — 22872 (+5)..."]
         if (!killsArray || killsArray.length === 0 || typeof killsArray[0] !== 'string') {
@@ -134,7 +134,7 @@ function ImpInfoPage() {
             .filter(Boolean);
 
         const parsedKills = killEntries.map((entry, index) => {
-            const match = entry.match(/^(.*?)\s*—\s*([0-9\s]+)\s*(\(\+[0-9]+\))?/);
+            const match = entry.match(/^(.*?)\s*—\s*(?:близько\s+)?([0-9\s]+)\s*(\(\+[0-9]+\))?/);
 
             if (match) {
                 let name = match[1].trim();
@@ -194,7 +194,6 @@ function ImpInfoPage() {
             </table>
         );
     };
-    // --- КІНЕЦЬ ОНОВЛЕНОЇ допоміжної функції для форматування Втрат ---
 
     //допоміжна функція для парсу А95+сума
     function addSpaceBeforePrice(inputString) {
@@ -246,6 +245,13 @@ function ImpInfoPage() {
                 <p><strong>Автор:</strong> {info.author}</p>
 
                 <p><strong>Відвідувачі:</strong> {info.visiters}</p>
+            </div>
+
+            {/* Додаємо кнопку для переходу на сторінку колеса */}
+            <div className="info-section wheel-link-section">
+                <Link to="/wheel" className="wheel-link-button">
+                    Перейти до колеса фортуни
+                </Link>
             </div>
         </div>
     );

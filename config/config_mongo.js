@@ -4,7 +4,8 @@
 module.exports = {
     // dbName: "mop_pg_collection",
     // mongoURL: 'mongodb+srv://mihashadep:PrV2KljpcWLigiJw@cluster0.ssxwebg.mongodb.net/uashe-db?retryWrites=true&w=majority',
-    mongoURL: "mongodb://localhost:27017/uashe-db?readPreference=primary&appname=MongoDB Compass&ssl=false",
+    mongoURL: "mongodb://bender:Bender021289@45.94.158.109:27017/uashe-db?authSource=admin",
+    //mongodb://bender:Bender021289@45.94.158.109:27017/
     numbersCollection: 'uashe-collection',
     fucksBase: 'RussianMilitaryShip-GoFuckYourself'
 };

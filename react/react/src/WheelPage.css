@@ -1,0 +1,110 @@
+/* src/WheelPage.css */
+.wheel-page-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background-color: #6c757d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+.wheel-page-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.wheel-controls {
+    flex: 1;
+    min-width: 300px;
+}
+
+.input-group {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.input-group button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.choices-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.choices-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.choices-list .remove-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    line-height: 1;
+    text-align: center;
+}
+
+.wheel-display {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стиль для кнопки на головній сторінці */
+.wheel-link-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.wheel-link-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.wheel-link-button:hover {
+    background-color: #0056b3;
+}

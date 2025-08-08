@@ -1,0 +1,89 @@
+/* src/Wheel.css */
+.wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wheel-wrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+canvas {
+    border: 2px solid #333;
+    border-radius: 50%;
+    transition: transform 5s cubic-bezier(0.2, 0.8, 0.4, 1);
+}
+
+.wheel-pin {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid #FF0000;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.wheel-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.wheel-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.wheel-result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    text-align: center;
+}
+
+.wheel-result h4 {
+    margin: 0;
+    color: #333;
+}
+
+/* --- Медіа-запит для мобільних пристроїв --- */
+@media (max-width: 600px) {
+    .wheel-wrapper {
+        width: 300px; /* Зменшуємо розмір колеса */
+        height: 300px;
+    }
+
+    /* Зменшуємо розмір елементів на мобільному */
+    .wheel-wrapper canvas {
+        width: 300px;
+        height: 300px;
+    }
+
+    .wheel-pin {
+        top: -10px; /* Коригуємо позицію стрілки */
+        border-left-width: 10px;
+        border-right-width: 10px;
+        border-top-width: 20px;
+    }
+}
