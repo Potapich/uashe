@@ -1,0 +1,18 @@
+/* src/Footer.css */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Забезпечує, що футер буде над іншим контентом */
+}
+
+.footer-content {
+    max-width: 960px;
+    margin: 0 auto;
+}
