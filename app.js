@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 });
 //end middleware for origin
 
-const whitelist = ['http://benderio.pp.ua', 'benderio.pp.ua', 'www.benderio.pp.ua', 'http://45.94.158.109:8070', 'http://45.94.158.109', '45.94.158.109', '45.94.158.109:8070', '127.0.0.1:8070', 'http://127.0.0.1:8070', 'http://localhost:5173']//todo change on ours domains!!!!!!!!!!!!!!!!!!!
+const whitelist = ['http://benderio.pp.ua', 'http://benderio.pp.ua/wheel','benderio.pp.ua', 'www.benderio.pp.ua', 'http://45.94.158.109:8070', 'http://45.94.158.109', '45.94.158.109', '45.94.158.109:8070', '127.0.0.1:8070', 'http://127.0.0.1:8070', 'http://localhost:5173']//todo change on ours domains!!!!!!!!!!!!!!!!!!!
 
 const corsOptions = {
     origin: (origin, cb) => {
