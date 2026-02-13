@@ -47,6 +47,10 @@ app.get(['/', '/wheel'], cors(corsOptions), function (req, res) {
     res.sendFile('index.html', {root: __dirname + '/react/react/dist'});
 });
 
+app.get('/happyvalentinesday', cors(corsOptions), function (req, res) {
+    res.sendFile('happyvalentinesday.html', {root: __dirname + '/views'});
+});
+
 app.get(
     ['/assets/*', '/img.png'], cors(corsOptions),
     function (req, res, next) {

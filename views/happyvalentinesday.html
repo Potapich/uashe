@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Для Дар'ї</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 40px 20px;
+      border-radius: 20px;
+      border: 2px solid #ff4d6d;
+      text-align: center;
+      width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .heart { font-size: 50px; margin-bottom: 20px; }
+
+    h1 { color: #ff4d6d; margin: 0 0 10px; font-size: 24px; }
+
+    .sub-text { color: #ff4d6d; font-size: 16px; margin-bottom: 20px; font-weight: bold; }
+
+    .question { color: #ccc; font-size: 18px; margin-bottom: 40px; }
+
+    /* Контейнер для кнопок */
+    .btn-container {
+      display: flex;
+      justify-content: space-around; /* Розносить кнопки */
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      position: relative; /* Важливо для старта */
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      min-width: 100px;
+    }
+
+    #yesBtn {
+      background-color: #333;
+      color: #ccc;
+      transition: 0.3s;
+    }
+
+    #yesBtn:hover { background-color: #444; color: #fff; transform: scale(1.1); }
+
+    #noBtn {
+      background-color: #333;
+      color: #ccc;
+      z-index: 100;
+    }
+
+    #celebration {
+      display: none;
+      color: #ff4d6d;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>Дар'я, з Днем Валентина!</h1>
+  <div class="sub-text">та з 14-ю річницею тебе!!! 🥂</div>
+
+  <div class="question">На вечір суші та текіла? 🍣🔥</div>
+
+  <div class="btn-container">
+    <button id="yesBtn">Так!</button>
+    <div style="width: 100px; height: 1px;">
+      <button id="noBtn">Подумаю</button>
+    </div>
+  </div>
+
+  <div id="celebration">Готуй келихи! 😍🥂</div>
+</div>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const celebration = document.getElementById('celebration');
+
+  const moveButton = () => {
+    // Як тільки мишка наведена, кнопка стає "літаючою"
+    noBtn.style.position = 'fixed';
+
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
+  };
+
+  noBtn.addEventListener('mouseover', moveButton);
+  noBtn.addEventListener('click', moveButton);
+
+  yesBtn.addEventListener('click', () => {
+    document.querySelector('.btn-container').style.display = 'none';
+    document.querySelector('.question').style.display = 'none';
+    celebration.style.display = 'block';
+
+    // Запуск сердечок
+    setInterval(createHeart, 200);
+  });
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.style.position = 'fixed';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = '100vh';
+    heart.style.fontSize = '20px';
+    heart.style.transition = 'transform 3s linear, opacity 3s';
+    document.body.appendChild(heart);
+    setTimeout(() => {
+      heart.style.transform = `translateY(-120vh)`;
+      heart.style.opacity = '0';
+    }, 100);
+    setTimeout(() => heart.remove(), 3000);
+  }
+</script>
+</body>
+</html>
