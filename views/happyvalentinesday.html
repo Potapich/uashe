@@ -1,174 +1,195 @@
 <!DOCTYPE html>
-    <html lang="uk">
-    <head>
+<html lang="uk">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Для Дар'ї 💙</title>
+    <link rel="icon" href="https://fav.farm/❤️">
     <style>
-     body {
-       margin: 0;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       height: 100vh;
-       background: linear-gradient(135deg, #ff9a9e 0%, #5d001e 99%, #5d001e 100%);
-       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-       overflow: hidden;
-     }
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #5d001e 99%, #5d001e 100%);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
 
-    .card {
-      background-color: #1a1a1a; /* Темна картка */
-      padding: 40px 20px;
-      border-radius: 25px;
-      border: 2px solid #ff4d6d;
-      text-align: center;
-      width: 420px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    }
+        .card {
+            background-color: #1a1a1a; /* Темна картка */
+            padding: 40px 20px;
+            border-radius: 25px;
+            border: 2px solid #ff4d6d;
+            text-align: center;
+            width: 420px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
 
-    .heart { font-size: 55px; margin-bottom: 15px; }
+        .heart {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
 
-    h1 { color: #ff4d6d; margin: 0 0 10px; font-size: 26px; }
+        h1 {
+            color: #ff4d6d;
+            margin: 0 0 10px;
+            font-size: 26px;
+        }
 
-    .sub-text { color: #ff4d6d; font-size: 17px; margin-bottom: 25px; font-weight: bold; }
+        .sub-text {
+            color: #ff4d6d;
+            font-size: 17px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
 
-    .question { color: #e0e0e0; font-size: 19px; margin-bottom: 45px; }
+        .question {
+            color: #e0e0e0;
+            font-size: 19px;
+            margin-bottom: 45px;
+        }
 
-    /* Контейнер для кнопок */
-    .btn-container {
-      display: flex;
-      justify-content: space-around; /* Розносить кнопки по сторонах */
-      align-items: center;
-      width: 100%;
-      height: 60px;
-      position: relative;
-    }
+        /* Контейнер для кнопок */
+        .btn-container {
+            display: flex;
+            justify-content: space-around; /* Розносить кнопки по сторонах */
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            position: relative;
+        }
 
-    button {
-      padding: 14px 28px;
-      font-size: 17px;
-      border-radius: 15px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      min-width: 120px;
-      color: white;
-      background-color: #00b4d8; /* Голубий колір */
-      box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
-      transition: all 0.3s ease;
-    }
+        button {
+            padding: 14px 28px;
+            font-size: 17px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            min-width: 120px;
+            color: white;
+            background-color: #00b4d8; /* Голубий колір */
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            transition: all 0.3s ease;
+        }
 
-    #yesBtn:hover {
-      background-color: #0096c7;
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
-    }
+        #yesBtn:hover {
+            background-color: #0096c7;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+        }
 
-    /* Зарезервоване місце для другої кнопки */
-    .no-btn-wrapper {
-      width: 120px;
-      height: 50px;
-    }
+        /* Зарезервоване місце для другої кнопки */
+        .no-btn-wrapper {
+            width: 120px;
+            height: 50px;
+        }
 
-    #noBtn {
-      z-index: 999;
-    }
+        #noBtn {
+            z-index: 999;
+        }
 
-    #celebration {
-      display: none;
-      color: #ff4d6d;
-      font-size: 22px;
-      margin-top: 20px;
-      font-weight: bold;
-      animation: fadeIn 1s;
-    }
+        #celebration {
+            display: none;
+            color: #ff4d6d;
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: fadeIn 1s;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="card">
-  <div class="heart">❤️</div>
-  <h1>Дар'я, з Днем Валентина!</h1>
-  <h1>Неймовірна 14-а річниця разом!!!🌹</h1>
-  </br>
-  <div class="question">На вечір суші та текіла? 🍣🔥</div>
+    <div class="heart">❤️</div>
+    <h1>Дар'я, з Днем Валентина!</h1>
+    <h1>Неймовірна 14-а річниця разом!!!🌹</h1>
+    </br>
+    <div class="question">На вечір суші та текіла? 🍣🔥</div>
 
-  <div class="btn-container">
-    <button id="yesBtn">Так!</button>
-    <div class="no-btn-wrapper">
-      <button id="noBtn">Подумаю</button>
+    <div class="btn-container">
+        <button id="yesBtn">Так!</button>
+        <div class="no-btn-wrapper">
+            <button id="noBtn">Подумаю</button>
+        </div>
     </div>
-  </div>
 
-  <div id="celebration">Готуй келихи! До вечора! 😍🥂</div>
+    <div id="celebration">Готуй келихи! До вечора! 😍🥂</div>
 </div>
 
 <script>
-  const noBtn = document.getElementById('noBtn');
-  const yesBtn = document.getElementById('yesBtn');
-  const celebration = document.getElementById('celebration');
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const celebration = document.getElementById('celebration');
 
-  const moveButton = () => {
-    // Кнопка переходить у фіксований стан після першого контакту
-    noBtn.style.position = 'fixed';
+    const moveButton = () => {
+        // Кнопка переходить у фіксований стан після першого контакту
+        noBtn.style.position = 'fixed';
 
-    // Розрахунок нових координат
-    const maxX = window.innerWidth - noBtn.offsetWidth - 30;
-    const maxY = window.innerHeight - noBtn.offsetHeight - 30;
+        // Розрахунок нових координат
+        const maxX = window.innerWidth - noBtn.offsetWidth - 30;
+        const maxY = window.innerHeight - noBtn.offsetHeight - 30;
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
 
-    noBtn.style.left = randomX + 'px';
-    noBtn.style.top = randomY + 'px';
-  };
+        noBtn.style.left = randomX + 'px';
+        noBtn.style.top = randomY + 'px';
+    };
 
-  // Тікаємо від мишки та кліків
-  noBtn.addEventListener('mouseover', moveButton);
-  noBtn.addEventListener('click', moveButton);
+    // Тікаємо від мишки та кліків
+    noBtn.addEventListener('mouseover', moveButton);
+    noBtn.addEventListener('click', moveButton);
 
-  // Дія при натисканні "Так"
-  yesBtn.addEventListener('click', () => {
-    document.querySelector('.btn-container').style.display = 'none';
-    document.querySelector('.question').style.display = 'none';
-    celebration.style.display = 'block';
+    // Дія при натисканні "Так"
+    yesBtn.addEventListener('click', () => {
+        document.querySelector('.btn-container').style.display = 'none';
+        document.querySelector('.question').style.display = 'none';
+        celebration.style.display = 'block';
 
-    // Фонтан із сердечок
-    setInterval(createHeart, 150);
-  });
-
-  function createHeart() {
-    // Масив з символами, які будуть вилітати
-    const items = ['❤️', '🌹'];
-
-    items.forEach(symbol => {
-      const el = document.createElement('div');
-      el.innerHTML = symbol;
-      el.style.position = 'fixed';
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.top = '100vh';
-      el.style.fontSize = Math.random() * 15 + 15 + 'px';
-      el.style.transition = 'transform 3s linear, opacity 3s';
-      el.style.zIndex = '1000';
-      el.style.pointerEvents = 'none'; // Щоб не заважали клікати по кнопках
-
-      document.body.appendChild(el);
-
-      // Анімація вгору
-      setTimeout(() => {
-        el.style.transform = `translateY(-120vh) rotate(${Math.random() * 360}deg)`;
-        el.style.opacity = '0';
-      }, 100);
-
-      // Видалення з DOM після завершення анімації
-      setTimeout(() => el.remove(), 3500);
+        // Фонтан із сердечок
+        setInterval(createHeart, 150);
     });
-  }
+
+    function createHeart() {
+        // Масив з символами, які будуть вилітати
+        const items = ['❤️', '🌹'];
+
+        items.forEach(symbol => {
+            const el = document.createElement('div');
+            el.innerHTML = symbol;
+            el.style.position = 'fixed';
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = '100vh';
+            el.style.fontSize = Math.random() * 15 + 15 + 'px';
+            el.style.transition = 'transform 3s linear, opacity 3s';
+            el.style.zIndex = '1000';
+            el.style.pointerEvents = 'none'; // Щоб не заважали клікати по кнопках
+
+            document.body.appendChild(el);
+
+            // Анімація вгору
+            setTimeout(() => {
+                el.style.transform = `translateY(-120vh) rotate(${Math.random() * 360}deg)`;
+                el.style.opacity = '0';
+            }, 100);
+
+            // Видалення з DOM після завершення анімації
+            setTimeout(() => el.remove(), 3500);
+        });
+    }
 </script>
 </body>
 </html>
