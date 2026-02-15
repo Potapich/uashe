@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "rapidapi",
+      "script": "app_for_rapidapi.js",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "env_development": {
+        "NODE_ENV": "development"
+      }
+    }
+  ]
+}
