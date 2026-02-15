@@ -5,6 +5,10 @@ const PORT = process.env.PORT || 8060;
 
 app.disable('x-powered-by');
 
+app.get('/healthcheck', function (req, res) {
+    res.end('healthcheck')
+});
+
 // ВСТАВ СЮДИ СВІЙ СЕКРЕТ З RAPIDAPI
 const RAPIDAPI_PROXY_SECRET = '1c736080-0a79-11f1-b3ec-49468a18f1ea';
 
@@ -68,10 +72,6 @@ app.get('/api/v1/crypto/top', async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: 'Could not fetch market data' });
     }
-});
-
-app.get('/healthcheck', function (req, res) {
-    res.end('healthcheck')
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
