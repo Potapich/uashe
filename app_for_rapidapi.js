@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8060;
 app.disable('x-powered-by');
 
 // ВСТАВ СЮДИ СВІЙ СЕКРЕТ З RAPIDAPI
-const RAPIDAPI_PROXY_SECRET = 'твій_секрет_тут';
+const RAPIDAPI_PROXY_SECRET = '1c736080-0a79-11f1-b3ec-49468a18f1ea';
 
 // Middleware для перевірки, що запит прийшов саме від RapidAPI
 app.use((req, res, next) => {
