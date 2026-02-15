@@ -1,8 +1,21 @@
 const express = require('express');
+const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 8060;
 
 app.disable('x-powered-by');
+
+// ВСТАВ СЮДИ СВІЙ СЕКРЕТ З RAPIDAPI
+const RAPIDAPI_PROXY_SECRET = 'твій_секрет_тут';
+
+// Middleware для перевірки, що запит прийшов саме від RapidAPI
+app.use((req, res, next) => {
+    const secret = req.headers['x-rapidapi-proxy-secret'];
+    if (secret !== RAPIDAPI_PROXY_SECRET) {
+        return res.status(403).json({ error: 'Access denied. Use RapidAPI Hub.' });
+    }
+    next();
+});
 
 // Наш список ТОП-10 (можна змінювати за бажанням)
 const TOP_10_SYMBOLS = [
@@ -28,27 +41,37 @@ app.get('/api/v1/crypto/price', async (req, res) => {
 // 2. Новий ендпоінт для ТОП-10
 app.get('/api/v1/crypto/top', async (req, res) => {
     try {
-        // Формуємо запит для Binance: ["BTCUSDT","ETHUSDT",...]
         const symbolsParam = JSON.stringify(TOP_10_SYMBOLS);
-        const response = await fetch(`https://api.binance.com/api/v3/ticker/price?symbols=${symbolsParam}`);
+        const response = await fetch(`https://api.binance.com/api/v3/ticker/24hr?symbols=${symbolsParam}`);
 
         if (!response.ok) throw new Error('Binance error');
 
         const data = await response.json();
 
-        res.json({
-            status: 'success',
-            count: data.length,
+        // Формуємо професійну відповідь
+        const result = {
+            success: true,
+            base_currency: "USDT",
             timestamp: new Date().toISOString(),
-            data: data.map(item => ({
-                symbol: item.symbol,
-                price: parseFloat(item.price)
+            market_data: data.map(item => ({
+                symbol: item.symbol.replace('USDT', ''),
+                full_symbol: item.symbol,
+                price: parseFloat(item.lastPrice),
+                price_change_percent_24h: parseFloat(item.priceChangePercent),
+                high_24h: parseFloat(item.highPrice),
+                low_24h: parseFloat(item.lowPrice),
+                volume_24h: parseFloat(item.volume)
             }))
-        });
+        };
+
+        res.json(result);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ status: 'error', message: 'Could not fetch top 10' });
+        res.status(500).json({ success: false, message: 'Could not fetch market data' });
     }
+});
+
+app.get('/healthcheck', function (req, res) {
+    res.end('healthcheck')
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
