@@ -6,13 +6,9 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
-    "cookie-parser": "~1.4.4",
-    "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "mongodb": "^6.16.0",
-    "request": "^2.88.2"
+    "cookie-parser": "~1.4.7",
+    "cors": "^2.8.6",
+    "express": "~5.2.1",
+    "mongodb": "^7.1.1"
   }
 }
